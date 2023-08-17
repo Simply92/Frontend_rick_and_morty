@@ -1,0 +1,33 @@
+.SearchBar{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    border: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.input{
+    font-size: 1.2em;
+    font-weight: 700;
+    color: black;
+    border: none;
+    width: 300px;
+    height: 30px;
+    margin-right: 20px;
+    background-color: antiquewhite;
+    border-radius: 5px;
+}
+.btn{
+    font-size: 1em;
+    font-weight: 700;
+    color: rgb(85, 54, 0);
+    width: 80px;
+    height: 25px;
+    border:none;
+    background-color: #FFD700;
+    border-radius: 5px;
+    cursor: pointer;
+}
