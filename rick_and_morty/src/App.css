@@ -1,8 +1,10 @@
 .App {
    /* text-align: center; */
-   width: 100vw;
-   height: 100vh;
+   /* height: 100%;
+   width: 100%;
    background-image: url(./components/fondo.jpg);
-   background-repeat: no-repeat;
-   background-size: cover;
+   background-size: 1500px 1500px;
+   background-repeat: repeat;
+   position: fixed; */
+   /* position: fixed; */
 }

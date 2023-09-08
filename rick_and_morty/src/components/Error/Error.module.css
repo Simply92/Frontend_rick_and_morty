@@ -1,0 +1,29 @@
+  .allpage{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .imagen{
+    display: flex;
+    justify-content: center;
+    width: 800px;
+    height: auto;
+    padding: 20px 0px 0px 500px;
+  }
+  
+  .button {
+    text-align: center;
+    width: 800px;
+    height: 40px;
+    margin-left: 500px;
+    background-color: #4caf91;
+    box-shadow: 0 8px 16px 0 rgba(14, 230, 230, 0.849), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: 1rem;
+  }
+  
+  .button:hover {
+    background-color: #3adf19;
+    color: #fff;
+    border-color: blue;
+    box-shadow: 0 16px 16px 0 rgba(66, 206, 211, 0.897), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  }
