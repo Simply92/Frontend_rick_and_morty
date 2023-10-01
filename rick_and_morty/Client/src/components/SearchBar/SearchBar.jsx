@@ -20,7 +20,7 @@ export default function SearchBar({onSearch}) {
          <form className={styles.SearchBar} onSubmit={handleSubmit}>
          <input
          type='search'
-         placeholder='Ingrese id'
+         placeholder='Enter id'
          value={id}
          onChange={handleChange}
          className= {styles.input}  />

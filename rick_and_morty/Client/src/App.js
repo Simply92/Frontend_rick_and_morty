@@ -21,36 +21,64 @@ function App() {
    const {pathname} = useLocation();
    const navigate = useNavigate();
 
-   function login(userData) {
-      const { email, password } = userData;
+   // function login(userData) {
+   //    const { email, password } = userData;
+   //    const URL = 'http://localhost:3001/rickandmorty/login/';
+   //    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+   //       const { access } = data;
+   //       setAccess(data);
+   //       access && navigate('/home');
+   //    });
+   // }
+
+   const login = async (userData) => {
+      try {
+         const { email, password } = userData;
       const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      const {data} = await axios(URL + `?email=${email}&password=${password}`)
          const { access } = data;
          setAccess(data);
-         access && navigate('/home');
-      });
+       access && navigate('/home');
+      } catch (error) {
+         Swal.fire('Incorrect data', '', 'error')
+      }
    }
 
    useEffect(() => {
-      !access && navigate('/');
+      !access && navigate('*');
    }, [access]);
 
-   function onSearch(id) {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
-         if (data.name) {
-            const idExistente = characters.some(char => char.id === data.id);
-            if(idExistente){
-               Swal.fire('The id is repeated!','','warning')
-            } else{
-           setCharacters((oldChars) => [...oldChars, data])}; 
-         } else {
-             Swal.fire('This id was not found!', '', 'error')
-         }
-      }).catch();
-   }
+   // const onSearch =  (id) =>{
+   //    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
+   //       if (data.name) {
+   //          const idExistente = characters.some(char => char.id === data.id);
+   //          if(idExistente){
+   //             Swal.fire('The id is repeated!','','warning')
+   //          } else{
+   //         setCharacters((oldChars) => [...oldChars, data])}; 
+   //       } else {
+   //           Swal.fire('This id was not found!', '', 'error')
+   //       }
+   //    }).catch();
+   // }
+
+   const onSearch = async (id) =>{
+      try {
+        const {data} = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
+        if (data.name) {
+                  const idExistente = characters.some(char => char.id === data.id);
+                  if(idExistente){
+                     Swal.fire('The id is repeated!','','warning')
+                  } else{
+                 setCharacters((oldChars) => [...oldChars, data])}; 
+                  }
+      } catch (error) {
+         Swal.fire('This id was not found!', '', 'error')
+      }
+}
   
    function onClose(id) {
-     const newCharacters = characters.filter((char) => char.id !== Number(id));
+     const newCharacters = characters.filter((char) => char.id !== (id));
      
      setCharacters(newCharacters);
      console.log(onClose);

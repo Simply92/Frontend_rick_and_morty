@@ -1,18 +1,16 @@
 const users = require('../utils/users')
 
 
- const login = (req, res) => {
-  const { email, password } = req.query;
-  let access = false;
+const login = (req,res) => { 
+const  {email,password} = req.query; 
 
-  users.forEach((user) => {
-    if(user.email === email && user.password === password){
-        access = true;
-    }
-  })
+const userFound = users.find((user) => user.email === email && user.password === password  )
 
-  return res.status(200).json({ access })
-  
+return userFound 
+? res.status(200).json({access:true})
+: res.status(404).json({access:false})
 }
 
-module.exports = login;
+module.exports = { 
+    login
+};

@@ -32,8 +32,8 @@ function Favorites(props) {
       <div className={styles.Order}>
          <select value={opcion1} className={styles.favFilter} onChange={handleOrder}>
             <option value="" disabled selected>Select an option</option>
-            <option value="A">Ascendente</option>
-            <option value="D">Descendente</option>
+            <option value="A">Ascendant</option>
+            <option value="D">Descending</option>
          </select>
          <select value={opcion2} className={styles.favFilter} onChange={handleFilter}>
             <option value="" disabled selected>Select an option</option>

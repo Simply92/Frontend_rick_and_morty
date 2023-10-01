@@ -7,13 +7,13 @@ function ErrorPage() {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
-    navigate(-1);
+    navigate("/home");
   };
 
   return (
     <div className={styles.allpage}>
         <button className={styles.button} onClick={handleGoBack}>
-                Volver
+        Go back!
         </button>
       <img src={ErrorImage} alt="error-page" className={styles.imagen}/>    
     </div>
