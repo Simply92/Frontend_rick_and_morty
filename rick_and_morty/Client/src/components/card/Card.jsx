@@ -11,7 +11,6 @@ const Card = (props) => {
     status,
     species,
     gender,
-    origin,
     image,
     onClose,
     addFav,
@@ -29,7 +28,6 @@ const Card = (props) => {
   };
 
   useEffect(() => {
-    console.log(pathname);
     myFavorites.forEach((fav) => {
       if (fav.id === props.id) {
         setIsFav(true);

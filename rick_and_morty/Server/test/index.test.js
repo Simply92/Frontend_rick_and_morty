@@ -53,7 +53,7 @@ describe("Test de RUTAS", () => {
             expect(body.access).toEqual(true);
         })
 
-        it("Devuelve un objeto con la propiedad access en false si la informacion es valida", async() =>{
+        it("Devuelve un objeto con la propiedad access en false si la informacion es falsa", async() =>{
             const {body} = await agent.get('/rickandmorty/login?email=pedro92@gmail.com&password=Asd45234')
             expect(body.access).toEqual(false);
         })
@@ -61,17 +61,17 @@ describe("Test de RUTAS", () => {
     describe("POST /rickandmorty/fav", () => {
        
         it("Devuelve un arreglo de lo enviado por body", async() => {
-            const {body} = await agent.post('/rickandmorty/fav')
-            .send(character1)
-            expect(body).toContainEqual(character1)
+            const response = (await agent.post('/rickandmorty/fav')
+            .send(character1)).body
+            expect(response).toContainEqual(character1)
         })
 
         it("Debe agregar personajes a favoritos sin eliminar los existentes", 
         async () => {
-            const {body} = await agent.post('/rickandmorty/fav')
-            .send(character2)
-            expect(body).toContainEqual(character1)
-            expect(body).toContainEqual(character2)
+            const response = (await agent.post('/rickandmorty/fav')
+            .send(character2)).body
+            expect(response).toContainEqual(character1)
+            expect(response).toContainEqual(character2)
         })
     })
     describe("DELETE /rickandmorty/fav/:id", () => {

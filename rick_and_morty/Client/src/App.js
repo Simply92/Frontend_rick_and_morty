@@ -5,17 +5,18 @@ import Cards from './components/cards/Cards.jsx';
 import Nav from './components/NavBar/Nav';
 import ErrorPage from "./components/Error/Errorpage.jsx";
 import Form from "./components/Form/Form.jsx";
-import Favorites from "./components/Favorites/Favorites.jsx"
+import Favorites from "./components/Favorites/Favorites.jsx";
+import RutasSeguras from './components/RutasSeguras/RutasSeguras';
 //HOOKS
 import axios from 'axios';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import useLocalStorage from "./components/RutasSeguras/UseLocal";
 //ESTILOS
-import './App.css';
 import Swal from 'sweetalert2';
 
 function App() {
-   const [access, setAccess] = useState(false);
+   const [access, setAccess] = useLocalStorage("acces", false);
    const [characters, setCharacters] = useState([]);
 
    const {pathname} = useLocation();
@@ -45,7 +46,7 @@ function App() {
    }
 
    useEffect(() => {
-      !access && navigate('*');
+      !access && navigate('/');
    }, [access]);
 
    // const onSearch =  (id) =>{
@@ -91,15 +92,20 @@ function App() {
 //    }
 
    return (
+      
       <div className='App'>
          {pathname !== '/' &&<Nav onSearch= {onSearch}/>}
          <Routes>
          <Route path='/' element={<Form login={login} />} />
-         <Route path='/home' element={<Cards characters={characters} onClose={onClose} />}/>
-         <Route path='/about' element={<About/>}/>
-         <Route path='/detail/:id' element={<Detail/>}/>
-         <Route path='/favorites' element={<Favorites />}/>
-         <Route path='*' element={<ErrorPage />} />
+
+         <Route element={<RutasSeguras access={access}/>}>
+            <Route path='/home' element={<Cards characters={characters} onClose={onClose} />}/>
+            <Route path='/about' element={<About/>}/>
+            <Route path='/detail/:id' element={<Detail/>}/>
+            <Route path='/favorites' element={<Favorites />}/>
+         </Route>
+
+         <Route path='/*' element={<ErrorPage />} />
          </Routes>
       </div>
    );

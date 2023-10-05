@@ -22,7 +22,7 @@ const rootReducer = (state= initialState, {type, payload}) => {
         //         myFavorites: filtro
         //     } 
         case REMOVE_FAV:
-      return { ...state, myFavorites: payload };
+      return { ...state, myFavorites: payload, allCharacters:payload };
         case FILTER:
             const filtroGer = state.allCharacters.filter((char) => char.gender === payload)
             return{
@@ -30,14 +30,12 @@ const rootReducer = (state= initialState, {type, payload}) => {
                 myFavorites: filtroGer
             }
         case ORDER:
-            const filtro2 = state.allCharacters
-            const reset = filtro2.sort((a,b) => {
+            // const filtro2 = state.allCharacters
+            const reset = state.allCharacters.sort((a,b) => {
                 if(payload === 'A'){
                     return a.id - b.id
                 }else if (payload === 'D'){
                     return b.id - a.id
-                }else{
-                    return 0;
                 }
             })
             return{
