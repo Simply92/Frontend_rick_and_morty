@@ -37,3 +37,48 @@ justify-content: space-evenly;
     border-radius: 5px;
     cursor: pointer;
   }
+
+@media screen and (max-width: 600px){
+  .Order{
+    margin-top: 70px;
+  }
+  
+  .favFilter {
+    width: 130px;
+    font-size: 16px;
+  }
+  .favReset {
+    font-size: 12px;
+    width: 120px;
+  }
+}
+
+@media screen and (max-width: 850px) and (min-width: 601px){
+  .Order{
+    margin-top: 90px;
+  }
+
+  .favFilter {
+    width: 150px;
+    font-size: 16px;
+  }
+  .favReset {
+    font-size: 16px;
+    width: 120px;
+  }
+}
+
+@media screen and (max-width: 1300px) and (min-width: 851px){
+  .Order{
+    margin-top: 100px;
+  }
+
+  .favFilter {
+    width: 200px;
+    font-size: 18px;
+  }
+  .favReset {
+    font-size: 16px;
+    width: 140px;
+  }
+}

@@ -16,8 +16,7 @@ export default function SearchBar({onSearch}) {
 
 
    return (
-      <div>
-         <form className={styles.SearchBar} onSubmit={handleSubmit}>
+         <form  onSubmit={handleSubmit}>
          <input
          type='search'
          placeholder='Enter id'
@@ -26,6 +25,5 @@ export default function SearchBar({onSearch}) {
          className= {styles.input}  />
          <button className={styles.butSear} onClick={() =>onSearch(id)}>ADD</button>
          </form>
-      </div>
    );
 }

@@ -31,9 +31,9 @@ const Form = (props) => {
             name="email"
              />
              {errors.email && (
-             <h4 style={{color: "red"}}>
+             <p style={{color: "red"}}>
                 <span>{errors.email}</span>
-             </h4>
+             </p>
              )}
             <label htmlFor="password">Password</label>
             <input 
@@ -43,9 +43,9 @@ const Form = (props) => {
             name="password" 
             />
              {errors.password && (
-             <h4 style={{color: "red"}}>
+             <p style={{color: "red"}}>
                 <span>{errors.password}</span>
-             </h4>
+             </p>
              )}
             <button>Submit</button>
            </form>

@@ -1,13 +1,5 @@
-.SearchBar{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    width: 450px;
-}
-
 .input{
-    margin-right: 20px;
+    margin-left: 50px;
     font-size: 1.2em;
     font-weight: 700;
     color: black;
@@ -16,10 +8,10 @@
     height: 30px;
     background-color: antiquewhite;
     border-radius: 5px;
-    justify-content: flex-end;
 }
 
 .butSear{
+    margin-left: 10px;
     text-align: center;
     font-size: 18px;
     font-weight: 700;
@@ -30,5 +22,68 @@
     background-color: #FFD700;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 20px;
 }
+
+@media screen and (max-width: 600px) {
+    
+    .input{
+        margin-left: 10px;
+        font-size: 20px;
+        width: 200px;
+        height: 30px;
+    }
+
+    .butSear{
+        margin-right: 0px;
+        width: 60px;   
+    }
+
+}
+
+
+@media screen and (max-width: 850px) and (min-width: 601px) {
+    
+    .input{
+        margin-left: 0px;
+        font-size: 20px;
+        width: 200px;
+        height: 30px;
+    }
+
+    .butSear{
+        margin-left: 10px;
+        width: 60px;   
+    }
+
+}
+
+@media screen and (max-width: 1300px) and (min-width: 851px) {
+    
+    .input{
+        margin-left: 0px;
+        font-size: 20px;
+        width: 250px;
+        height: 30px;
+    }
+
+    .butSear{
+        margin-left: 30px;
+        width: 70px;   
+    }
+
+}
+/* @media screen and (min-width: 601px) {
+    
+    .input{
+        margin-left: 10px;
+        font-size: 20px;
+        width: 200px;
+        height: 30px;
+    }
+
+    .butSear{
+        margin-right: 0px;
+        width: 60px;   
+    }
+
+} */
