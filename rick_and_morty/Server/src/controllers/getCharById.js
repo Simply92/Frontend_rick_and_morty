@@ -16,9 +16,8 @@
     }
 }
 
-module.exports = {
-    getCharById
-};
+module.exports = getCharById;
+
 
 // const axios = require('axios');
 
