@@ -24,7 +24,7 @@ const Card = (props) => {
 
   const handleFavorite = () => {
     isFav ? removeFav(id) : addFav(props);
-    setIsFav(!isFav);
+     setIsFav(!isFav);
   };
 
   useEffect(() => {

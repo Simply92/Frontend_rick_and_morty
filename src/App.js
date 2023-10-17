@@ -7,6 +7,7 @@ import ErrorPage from "./components/Error/Errorpage.jsx";
 import Form from "./components/Form/Form.jsx";
 import Favorites from "./components/Favorites/Favorites.jsx";
 import RutasSeguras from './components/RutasSeguras/RutasSeguras';
+import Register from './components/Register/RegisterUser';
 //HOOKS
 import axios from 'axios';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
@@ -94,9 +95,10 @@ function App() {
    return (
       
       <div className='App'>
-         {pathname !== '/' &&<Nav onSearch= {onSearch}/>}
+         {pathname !== '/' && pathname !== '/register' &&<Nav onSearch= {onSearch}/>}
          <Routes>
          <Route path='/' element={<Form login={login} />} />
+         <Route path='/register' element={<Register/>}/>
 
          <Route element={<RutasSeguras access={access}/>}>
             <Route path='/home' element={<Cards characters={characters} onClose={onClose} />}/>

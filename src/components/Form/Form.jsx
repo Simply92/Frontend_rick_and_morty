@@ -2,6 +2,7 @@ import styles from "./Form.module.css";
 import loginImagen from "./imagen_login.jpg";
 import { useState } from "react";
 import validation from "./validation";
+import { Link } from "react-router-dom";
 
 const Form = (props) => {
     const {login} = props;
@@ -47,7 +48,10 @@ const Form = (props) => {
                 <span>{errors.password}</span>
              </p>
              )}
-            <button>Submit</button>
+            <button>Login</button>
+            <Link to='/register'>
+            <button>Register</button>
+            </Link>
            </form>
         </div>
 )
