@@ -7,41 +7,27 @@ const initialState = {
 
 const rootReducer = (state= initialState, {type, payload}) => {
     switch(type){
-        // case ADD_FAV:
-        // return{
-        //     ...state,
-        //     allCharacters: [...state.allCharacters, payload],
-        //     myFavorites: [...state.allCharacters, payload] 
-        // }
-        case ADD_FAV:
+      case ADD_FAV:
       return { ...state, myFavorites: payload, allCharacters: payload };
-        // case REMOVE_FAV:
-        //     const filtro = state.myFavorites.filter((char)=> char.id !== Number(payload))
-        //     return{
-        //         ...state,
-        //         myFavorites: filtro
-        //     } 
-        case REMOVE_FAV:
+      
+      case REMOVE_FAV:
       return { ...state, myFavorites: payload, allCharacters:payload };
-        case FILTER:
+        
+      case FILTER:
             const filtroGer = state.allCharacters.filter((char) => char.gender === payload)
             return{
                 ...state,
                 myFavorites: filtroGer
             }
         case ORDER:
-            // const filtro2 = state.allCharacters
-            const reset = state.allCharacters.sort((a,b) => {
-                if(payload === 'A'){
-                    return a.id - b.id
-                }else if (payload === 'D'){
-                    return b.id - a.id
-                }
-            })
-            return{
-                ...state,
-                myFavorites: reset
-            }
+            const allCharactersCopy = [...state.allCharacters]
+        return {
+          ...state,
+          myFavorites:
+          payload === "A"
+          ? allCharactersCopy.sort((a, b)=> a.id - b.id)
+          : allCharactersCopy.sort((a, b)=> b.id - a.id)
+        }   
         case RESET:
             return{
                 ...state,
@@ -54,3 +40,18 @@ const rootReducer = (state= initialState, {type, payload}) => {
 }
 
 export default rootReducer;
+
+
+
+// const filtro2 = state.allCharacters
+// const reset = state.allCharacters.sort((a,b) => {
+//     if(payload === 'A'){
+//         return a.id - b.id
+//     }else if (payload === 'D'){
+//         return b.id - a.id
+//     }
+// })
+// return{
+//     ...state,
+//     myFavorites: reset
+// }

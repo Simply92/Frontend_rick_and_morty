@@ -31,12 +31,12 @@ function Favorites(props) {
    return <div>
       <div className={styles.Order}>
          <select value={opcion1} className={styles.favFilter} onChange={handleOrder}>
-            <option value="" disabled selected>Select an option</option>
+            <option value=""disabled>Select an option</option>
             <option value="A">Ascendant</option>
             <option value="D">Descending</option>
          </select>
          <select value={opcion2} className={styles.favFilter} onChange={handleFilter}>
-            <option value="" disabled selected>Select an option</option>
+            <option value="" disabled>Select an option</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Genderless">Genderless</option>
@@ -58,7 +58,7 @@ function Favorites(props) {
                 />
                 )
                })}
-</div>;
+         </div>;
             </div>;
 }
 
@@ -69,4 +69,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps)(Favorites);
+export default connect(mapStateToProps, null)(Favorites);

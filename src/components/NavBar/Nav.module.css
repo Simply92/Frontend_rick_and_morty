@@ -201,3 +201,23 @@
     }
     
 }
+
+@media screen and (max-width: 1500px) and (min-width: 1301px) {
+
+.random{
+    margin-left: 200px;
+}
+
+.btn{
+    margin: 10px;
+}
+
+.normalButton{
+    margin-right: 50px;
+    width: 120px;
+}
+
+.logOut{
+    width: 120px;
+}
+}

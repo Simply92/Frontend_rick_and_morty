@@ -66,7 +66,7 @@ function App() {
 
    const onSearch = async (id) =>{
       try {
-        const {data} = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
+        const {data} = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
         if (data.name) {
                   const idExistente = characters.some(char => char.id === data.id);
                   if(idExistente){
@@ -81,9 +81,7 @@ function App() {
   
    function onClose(id) {
      const newCharacters = characters.filter((char) => char.id !== (id));
-     
      setCharacters(newCharacters);
-     console.log(onClose);
   }
   
 //   function login(userData) {

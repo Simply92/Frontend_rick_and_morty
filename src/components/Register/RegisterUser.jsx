@@ -32,57 +32,59 @@ function Register() {
               '',
               'success'
             )
-               navigate('/');}
+              navigate('/');}
     
         } catch (error) {
           console.error('Error:', error);
         }
+      };
+      const handleGoBack = () => {
+        navigate("/");
       };
 
   return (
     <div className={styles.contenedor}>
     <form onSubmit={handleSubmit} className={styles.form} >
       <label>
-        Nombre:
+        Name:
       </label>
       <input
         type="text"
         name="name"
-        placeholder="Nombre"
         value={formData.name}
         onChange={handleChange}
       />
          <label>
-        Apellido:
+        Last Name:
       </label>
        <input
         type="text"
         name="lastname"
-        placeholder="Apellido"
         value={formData.lastname}
         onChange={handleChange}
       />
          <label>
-        Correo electrónico:
+        Email:
       </label>
       <input
         type="email"
         name="email"
-        placeholder="Correo Electrónico"
         value={formData.email}
         onChange={handleChange}
       />  
        <label>
-      Contraseña:
+      Password:
     </label>
       <input
         type="password"
         name="password"
-        placeholder="Contraseña"
         value={formData.password}
         onChange={handleChange}
       />
+      <div className={styles.Btns}>
       <button>Sing in</button>
+      <button onClick={handleGoBack}>Back</button>
+      </div>
     </form>
     </div>
   );
