@@ -14,7 +14,7 @@
   margin: 20px;
   .status{
     position: absolute;
-    justify-content: center;
+    align-items: center;
     color: #3fe216;
     display: flex;
     top: -8%;
