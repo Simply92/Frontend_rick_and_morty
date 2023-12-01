@@ -15,6 +15,7 @@ import { useState, useEffect } from 'react';
 import useLocalStorage from "./components/RutasSeguras/UseLocal";
 //ESTILOS
 import Swal from 'sweetalert2';
+const url = process.env.VITE_BACK_URL;
 
 function App() {
    const [access, setAccess] = useLocalStorage("acces", false);
@@ -36,7 +37,7 @@ function App() {
    const login = async (userData) => {
       try {
          const { email, password } = userData;
-      const URL = 'http://localhost:3001/rickandmorty/login/';
+      const URL = `${url}/rickandmorty/login/`;
       const {data} = await axios(URL + `?email=${email}&password=${password}`)
          const { access } = data;
          setAccess(data);
@@ -66,7 +67,7 @@ function App() {
 
    const onSearch = async (id) =>{
       try {
-        const {data} = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+        const {data} = await axios(`${url}/rickandmorty/character/${id}`)
         if (data.name) {
                   const idExistente = characters.some(char => char.id === data.id);
                   if(idExistente){

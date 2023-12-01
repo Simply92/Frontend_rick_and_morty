@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import styles from './RegisterUser.module.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+const url = process.env.VITE_BACK_URL
 
 function Register() {
   const navigate = useNavigate();
+  
 
   const [formData, setFormData] = useState({
     name: '',
@@ -24,7 +26,7 @@ function Register() {
         event.preventDefault();
     
         try {
-          const response = await axios.post('http://localhost:3001/rickandmorty/register', formData);
+          const response = await axios.post(`${url}/rickandmorty/register`, formData);
     
           if (response) {
             Swal.fire(

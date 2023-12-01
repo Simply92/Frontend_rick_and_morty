@@ -1,8 +1,9 @@
 import {ADD_FAV, REMOVE_FAV, FILTER, ORDER, RESET} from "./types"
 import axios from "axios";
+const url = process.env.VITE_BACK_URL
 
 export const addFav = (character) => {
-  const endpoint = "http://localhost:3001/rickandmorty/fav";
+  const endpoint = `${url}/rickandmorty/fav`;
   return async (dispatch) => {
     try {
       const { data } = await axios.post(endpoint, character);
@@ -15,7 +16,7 @@ export const addFav = (character) => {
 };
 
 export const removeFav = (id) => {
-  const endpoint = "http://localhost:3001/rickandmorty/fav/" + id;
+  const endpoint = `${url}/rickandmorty/fav/` + id;
   return async (dispatch) => {
     try {
       const { data } = await axios.delete(endpoint);
