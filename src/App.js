@@ -15,7 +15,7 @@ import { useState, useEffect } from 'react';
 import useLocalStorage from "./components/RutasSeguras/UseLocal";
 //ESTILOS
 import Swal from 'sweetalert2';
-const url = process.env.VITE_BACK_URL;
+const url = process.env.REACT_APP_BACK_URL;
 
 function App() {
    const [access, setAccess] = useLocalStorage("acces", false);

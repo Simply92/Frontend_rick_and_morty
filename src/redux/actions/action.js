@@ -1,6 +1,6 @@
 import {ADD_FAV, REMOVE_FAV, FILTER, ORDER, RESET} from "./types"
 import axios from "axios";
-const url = process.env.VITE_BACK_URL
+const url = process.env.REACT_APP_BACK_URL;
 
 export const addFav = (character) => {
   const endpoint = `${url}/rickandmorty/fav`;
