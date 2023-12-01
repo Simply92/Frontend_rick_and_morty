@@ -8,13 +8,11 @@
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   position: relative;
   margin: 20px;
   .status{
     position: absolute;
-    align-items: center;
+    justify-content: center;
     color: #3fe216;
     display: flex;
     top: -8%;
