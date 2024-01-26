@@ -1,10 +1,9 @@
 import { useState } from "react";
 
 const useLocalStorage = (key, initialValue) => {
-
-  /**  
-  *Hook tomado de MiduDev
-  */
+  /**
+   *Hook tomado de MiduDev
+   */
 
   const [storedValue, setStoredValue] = useState(() => {
     try {
@@ -19,12 +18,10 @@ const useLocalStorage = (key, initialValue) => {
     try {
       setStoredValue(value);
       window.localStorage.setItem(key, JSON.stringify(value));
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
-  return [storedValue, setValue]
+  return [storedValue, setValue];
 };
 
 export default useLocalStorage;
