@@ -25,8 +25,8 @@ export const getFav = (user) => {
   };
 };
 
-export const removeFav = (id) => {
-  const endpoint = `${url}/rickandmorty/fav/` + id;
+export const removeFav = (id, user) => {
+  const endpoint = `${url}/rickandmorty/fav/${id}?user=${user}`;
   return async (dispatch) => {
     try {
       const { data } = await axios.delete(endpoint);

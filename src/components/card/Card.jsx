@@ -25,7 +25,8 @@ const Card = (props) => {
   const [isFav, setIsFav] = useState(false);
 
   const handleFavorite = () => {
-    isFav ? removeFav(id) : addFav(props, user);
+    console.log(user);
+    isFav ? removeFav(id, user) : addFav(props, user);
     setIsFav(!isFav);
   };
 
@@ -85,8 +86,9 @@ const mapDispatchToProps = (dispatch) => {
     addFav: (character, user) => {
       dispatch(addFav(character, user));
     },
-    removeFav: (id) => {
-      dispatch(removeFav(id));
+    removeFav: (id, user) => {
+      console.log(user);
+      dispatch(removeFav(id, user));
     },
   };
 };
